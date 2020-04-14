@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: monospace;
+}
+
+pre {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background: #eee;
+  height: 15rem;
+  overflow: auto;
+  max-width: 50rem;
+}
+
+a,
+button {
+  border: 0;
+  font-size: 1rem;
+  background: #eee;
+  border-radius: 0.25rem;
+  padding: 0.5em 1em;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button.primary {
+  background: #bbdefb;
+}
+
+button.success {
+  background: #c8e6c9;
+}
+
+button.danger {
+  background: #ffcdd2;
+}
