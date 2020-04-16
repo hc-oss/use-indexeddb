@@ -24,7 +24,7 @@ const IndexedDBProvider = (props: UseIndexedDBProps) => {
       {props.children}
     </ObservationCreateContext.Provider>
   ) : (
-    props.loading
+    props.loading || null
   );
 };
 
