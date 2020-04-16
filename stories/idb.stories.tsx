@@ -24,7 +24,7 @@ const idbConfig: IndexedDBConfig = {
 };
 
 export const Default = () => (
-  <IndexedDBProvider config={idbConfig}>
+  <IndexedDBProvider config={idbConfig} loading="Loading...">
     <IDBOperations />
   </IndexedDBProvider>
 );

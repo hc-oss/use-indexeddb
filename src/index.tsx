@@ -1,12 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-import { SSRWarning } from "./constants";
 import { getActions, getConnection } from "./db";
 import { IndexedDBConfig } from "./interfaces";
 
 interface UseIndexedDBProps {
   config: IndexedDBConfig;
   children?;
+  loading?;
   actions?: typeof getActions;
 }
 
@@ -24,7 +24,7 @@ const IndexedDBProvider = (props: UseIndexedDBProps) => {
       {props.children}
     </ObservationCreateContext.Provider>
   ) : (
-    <div data-info={SSRWarning} />
+    props.loading
   );
 };
 
