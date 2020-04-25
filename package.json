@@ -1,6 +1,6 @@
 {
   "name": "use-indexeddb",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Lightweight (1KB gzipped) hooks w/ promises for easy IndexedDB access in React ⚓",
   "author": "Harsh Zalavadiya",
   "module": "dist/use-indexeddb.esm.js",

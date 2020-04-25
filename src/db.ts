@@ -126,7 +126,7 @@ export function getActions<T>(currentStore, config) {
       });
     },
 
-    add(value: T, key?: any) {
+    add(value: T, key?: any, commit = true) {
       return new Promise<number>((resolve, reject) => {
         getConnection(config)
           .then(db => {
@@ -135,6 +135,7 @@ export function getActions<T>(currentStore, config) {
             let objectStore = tx.objectStore(currentStore);
             let request = objectStore.add(value, key);
             request.onsuccess = (e: any) => {
+              commit && (tx as any)?.commit();
               resolve(e.target.result);
             };
           })

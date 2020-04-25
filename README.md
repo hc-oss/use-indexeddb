@@ -79,9 +79,11 @@ const Example = () => {
 export default Container;
 ```
 
-### `add(value, key?)`
+### `add(value, key?, commit?)`
 
 Inserts given `value` record to selected store, second param is optional key useful if auto-increment is disabled
+
+By default commit is enabled after each transaction so changes are reflected in indexedDB instantly
 
 ```jsx
 import { useIndexedDBStore } from "use-indexeddb";
