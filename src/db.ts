@@ -126,7 +126,7 @@ export function getActions<T>(currentStore, config) {
       });
     },
 
-    add(value: T, key?: any, commit = true) {
+    add(value: T, key?: any) {
       return new Promise<number>((resolve, reject) => {
         getConnection(config)
           .then(db => {
@@ -135,7 +135,7 @@ export function getActions<T>(currentStore, config) {
             let objectStore = tx.objectStore(currentStore);
             let request = objectStore.add(value, key);
             request.onsuccess = (e: any) => {
-              commit && (tx as any)?.commit();
+              (tx as any).commit();
               resolve(e.target.result);
             };
           })
@@ -148,11 +148,12 @@ export function getActions<T>(currentStore, config) {
           .then(db => {
             validateBeforeTransaction(db, currentStore, reject);
             let tx = createTransaction(db, "readwrite", currentStore, resolve, reject);
-            tx.oncomplete = (e: any) => {
-              resolve(e);
-            };
             let objectStore = tx.objectStore(currentStore);
-            objectStore.put(value, key);
+            let request = objectStore.put(value, key);
+            request.onsuccess = (e: any) => {
+              (tx as any).commit();
+              resolve(e.target.result);
+            };
           })
           .catch(reject);
       });
@@ -167,6 +168,7 @@ export function getActions<T>(currentStore, config) {
             let objectStore = tx.objectStore(currentStore);
             let request = objectStore.delete(id);
             request.onsuccess = (e: any) => {
+              (tx as any).commit();
               resolve(e);
             };
           })
@@ -182,6 +184,7 @@ export function getActions<T>(currentStore, config) {
             let objectStore = tx.objectStore(currentStore);
             objectStore.clear();
             tx.oncomplete = (e: any) => {
+              (tx as any).commit();
               resolve(e);
             };
           })
