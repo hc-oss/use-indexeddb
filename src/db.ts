@@ -135,7 +135,7 @@ export function getActions<T>(currentStore, config) {
             let objectStore = tx.objectStore(currentStore);
             let request = objectStore.add(value, key);
             request.onsuccess = (e: any) => {
-              (tx as any).commit();
+              (tx as any)?.commit?.();
               resolve(e.target.result);
             };
           })
@@ -151,7 +151,7 @@ export function getActions<T>(currentStore, config) {
             let objectStore = tx.objectStore(currentStore);
             let request = objectStore.put(value, key);
             request.onsuccess = (e: any) => {
-              (tx as any).commit();
+              (tx as any)?.commit?.();
               resolve(e.target.result);
             };
           })
@@ -168,7 +168,7 @@ export function getActions<T>(currentStore, config) {
             let objectStore = tx.objectStore(currentStore);
             let request = objectStore.delete(id);
             request.onsuccess = (e: any) => {
-              (tx as any).commit();
+              (tx as any)?.commit?.();
               resolve(e);
             };
           })
@@ -184,7 +184,7 @@ export function getActions<T>(currentStore, config) {
             let objectStore = tx.objectStore(currentStore);
             objectStore.clear();
             tx.oncomplete = (e: any) => {
-              (tx as any).commit();
+              (tx as any)?.commit?.();
               resolve(e);
             };
           })

@@ -79,7 +79,7 @@ const Example = () => {
 export default Container;
 ```
 
-### `add(value, key?, commit?)`
+### `add(value, key?)`
 
 Inserts given `value` record to selected store, second param is optional key useful if auto-increment is disabled
 
