@@ -36,7 +36,7 @@
     "@ampproject/filesize": "^4.0.1",
     "@babel/core": "^7.9.0",
     "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-docs": "^5.3.18",
+    "@storybook/addon-docs": "^6.0.16",
     "@storybook/addon-info": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
