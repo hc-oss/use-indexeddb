@@ -33,26 +33,24 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@ampproject/filesize": "^4.0.1",
-    "@babel/core": "^7.9.0",
-    "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-docs": "^5.3.18",
-    "@storybook/addon-info": "^5.3.18",
-    "@storybook/addon-links": "^5.3.18",
-    "@storybook/addons": "^5.3.18",
-    "@storybook/react": "^6.0.16",
-    "@types/react": "^16.9.34",
-    "@types/react-dom": "^16.9.6",
+    "@ampproject/filesize": "^4.2.0",
+    "@babel/core": "^7.11.4",
+    "@storybook/addon-essentials": "^6.0.19",
+    "@storybook/addon-links": "^6.0.19",
+    "@storybook/addons": "^6.0.19",
+    "@storybook/react": "^6.0.19",
+    "@types/react": "^16.9.48",
+    "@types/react-dom": "^16.9.8",
     "babel-loader": "^8.1.0",
     "husky": "^4.2.5",
     "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
-    "ts-loader": "^8.0.0",
-    "tsdx": "^0.13.2",
-    "tslib": "^2.0.0",
-    "typescript": "^3.8.3"
+    "ts-loader": "^8.0.3",
+    "tsdx": "^0.13.3",
+    "tslib": "^2.0.1",
+    "typescript": "^4.0.2"
   },
   "husky": {
     "hooks": {
@@ -63,5 +61,9 @@
     "track": [
       "./dist/*.production.min.js"
     ]
+  },
+  "dependencies": {
+    "@storybook/addon-knobs": "^6.0.19",
+    "@storybook/addon-storysource": "^6.0.19"
   }
 }
