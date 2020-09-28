@@ -2954,22 +2954,6 @@
     core-js "^3.6.5"
     find-up "^4.1.0"
 
-"@storybook/source-loader@6.0.21":
-  version "6.0.21"
-  resolved "https://registry.yarnpkg.com/@storybook/source-loader/-/source-loader-6.0.21.tgz#f4ae0fa3f3d119f9ace1d3364df21f8f7cf65bd7"
-  integrity sha512-Duzpz8udadR7wzH8/4F3GnMRe23oBOxTm4jBZw/T8NA+HqBtd9Y16swWw4BfwsRwfdZS4EVw3PtWgsAfoqF7ow==
-  dependencies:
-    "@storybook/addons" "6.0.21"
-    "@storybook/client-logger" "6.0.21"
-    "@storybook/csf" "0.0.1"
-    core-js "^3.0.1"
-    estraverse "^4.2.0"
-    global "^4.3.2"
-    loader-utils "^2.0.0"
-    lodash "^4.17.15"
-    prettier "~2.0.5"
-    regenerator-runtime "^0.13.3"
-
 "@storybook/source-loader@6.0.22":
   version "6.0.22"
   resolved "https://registry.yarnpkg.com/@storybook/source-loader/-/source-loader-6.0.22.tgz#62fb842f76be1a3e4eea7451c69de8726591dae8"
@@ -9715,9 +9699,9 @@ node-dir@^0.1.10:
     minimatch "^3.0.2"
 
 node-fetch@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
-  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
 node-int64@^0.4.0:
   version "0.4.0"
