@@ -2338,17 +2338,17 @@
     ts-dedent "^1.1.1"
 
 "@storybook/addon-knobs@^6.0.19":
-  version "6.0.27"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-6.0.27.tgz#20160e37583120c04cbc0d53f93172c5c78c3ca9"
-  integrity sha512-92vAznRPWJHRt2SP408S/UVTk7/wfPmgWLvdAP7fZ0JO/ysrDHYxqgCly3fuDA6YBCdhBk4aL8ICXfrmy7bE4w==
+  version "6.0.28"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-6.0.28.tgz#1956cc5d9200467ef271fb95d34656fddf149009"
+  integrity sha512-5vmr/kiOSO6Uvpx9DHQqAPDWbc6SXbLid7XYBMKBBZVHiu76iPgsLjx4KV3GFLSHaJZ4DPhwEN0hlIyf5Qlvvw==
   dependencies:
-    "@storybook/addons" "6.0.27"
-    "@storybook/api" "6.0.27"
-    "@storybook/channels" "6.0.27"
-    "@storybook/client-api" "6.0.27"
-    "@storybook/components" "6.0.27"
-    "@storybook/core-events" "6.0.27"
-    "@storybook/theming" "6.0.27"
+    "@storybook/addons" "6.0.28"
+    "@storybook/api" "6.0.28"
+    "@storybook/channels" "6.0.28"
+    "@storybook/client-api" "6.0.28"
+    "@storybook/components" "6.0.28"
+    "@storybook/core-events" "6.0.28"
+    "@storybook/theming" "6.0.28"
     copy-to-clipboard "^3.0.8"
     core-js "^3.0.1"
     escape-html "^1.0.3"
@@ -3063,22 +3063,6 @@
   dependencies:
     core-js "^3.6.5"
     find-up "^4.1.0"
-
-"@storybook/source-loader@6.0.27":
-  version "6.0.27"
-  resolved "https://registry.yarnpkg.com/@storybook/source-loader/-/source-loader-6.0.27.tgz#f36560e82d215e2554160326cc9baca9e037154d"
-  integrity sha512-mLncCAN0s9mcUY7/wFAwJvXDV2ts5XxB40ZHRZKlseTiI011uwf1AEBOmeSWft/CxOtbicHTYbIHdMokuWNjmg==
-  dependencies:
-    "@storybook/addons" "6.0.27"
-    "@storybook/client-logger" "6.0.27"
-    "@storybook/csf" "0.0.1"
-    core-js "^3.0.1"
-    estraverse "^4.2.0"
-    global "^4.3.2"
-    loader-utils "^2.0.0"
-    lodash "^4.17.15"
-    prettier "~2.0.5"
-    regenerator-runtime "^0.13.3"
 
 "@storybook/source-loader@6.0.28":
   version "6.0.28"
