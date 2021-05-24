@@ -4,10 +4,6 @@ import IndexedDBProvider from "../src";
 import { IndexedDBConfig } from "../src/interfaces";
 import IDBOperations from "./idb-operations";
 
-export default {
-  title: "Default",
-};
-
 const idbConfig: IndexedDBConfig = {
   databaseName: "fruity-db",
   version: 1,
@@ -23,8 +19,13 @@ const idbConfig: IndexedDBConfig = {
   ],
 };
 
-export const Default = () => (
+export const Page = () => (
   <IndexedDBProvider config={idbConfig} loading="Loading...">
     <IDBOperations />
   </IndexedDBProvider>
 );
+
+export default {
+  title: "Default",
+  component: Page,
+};

@@ -29,7 +29,7 @@ export function createTransaction(
 }
 
 export async function getConnection(config: IndexedDBConfig): Promise<IDBDatabase> {
-  return new Promise((resolve, reject) => {
+  return new Promise<IDBDatabase>((resolve, reject) => {
     const idbInstance = typeof window !== "undefined" ? window.indexedDB : null;
     if (idbInstance) {
       const request: IDBOpenDBRequest = idbInstance.open(config.databaseName, config.version);
@@ -53,7 +53,7 @@ export async function getConnection(config: IndexedDBConfig): Promise<IDBDatabas
           }
         });
         db.close();
-        resolve();
+        resolve(undefined);
       };
     } else {
       reject("Failed to connect");
@@ -193,7 +193,7 @@ export function getActions<T>(currentStore, config) {
     },
 
     openCursor(cursorCallback, keyRange?: IDBKeyRange) {
-      return new Promise<IDBCursorWithValue>((resolve, reject) => {
+      return new Promise<IDBCursorWithValue | void>((resolve, reject) => {
         getConnection(config)
           .then(db => {
             validateBeforeTransaction(db, currentStore, reject);

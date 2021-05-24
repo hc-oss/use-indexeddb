@@ -24,7 +24,7 @@
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=17"
   },
   "prettier": {
     "printWidth": 120,
@@ -33,29 +33,24 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@ampproject/filesize": "^4.2.0",
-    "@babel/core": "^7.11.4",
-    "@storybook/addon-essentials": "^6.0.19",
-    "@storybook/addon-links": "^6.0.19",
-    "@storybook/addons": "^6.0.19",
-    "@storybook/react": "^6.0.19",
-    "@types/react": "^16.9.48",
-    "@types/react-dom": "^16.9.8",
-    "babel-loader": "^8.1.0",
-    "husky": "^4.2.5",
+    "@ampproject/filesize": "^4.3.0",
+    "@babel/core": "^7.14.3",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/react": "^6.2.9",
+    "@types/react": "^17.0.6",
+    "@types/react-dom": "^17.0.5",
+    "babel-loader": "^8.2.2",
+    "husky": "^6.0.0",
     "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
-    "react-dom": "^16.13.1",
-    "react-is": "^16.13.1",
-    "ts-loader": "^8.0.3",
-    "tsdx": "^0.13.3",
-    "tslib": "^2.0.1",
-    "typescript": "^4.0.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "ts-loader": "^9.2.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4"
   },
   "filesize": {
     "track": [
@@ -63,7 +58,7 @@
     ]
   },
   "dependencies": {
-    "@storybook/addon-knobs": "^6.0.19",
-    "@storybook/addon-storysource": "^6.0.19"
+    "@storybook/addon-knobs": "^6.2.9",
+    "@storybook/addon-storysource": "^6.2.9"
   }
 }
