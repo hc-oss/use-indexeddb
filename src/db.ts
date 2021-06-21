@@ -70,7 +70,7 @@ export function getActions<T>(currentStore, config) {
             validateBeforeTransaction(db, currentStore, reject);
             let tx = createTransaction(db, "readonly", currentStore, resolve, reject);
             let objectStore = tx.objectStore(currentStore);
-            let request = objectStore.get(+id);
+            let request = objectStore.get(id);
             request.onsuccess = (e: any) => {
               resolve(e.target.result as T);
             };
