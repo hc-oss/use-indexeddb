@@ -2,7 +2,7 @@
 
 Lightweight (1KB gzipped) hooks w/ promises for easy IndexedDB access in React ⚓
 
-[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://use-indexeddb.netlify.com)
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://use-indexeddb.vercel.app)
 [![GitHub Actions Status](https://github.com/harshzalavadiya/use-indexeddb/workflows/CI/badge.svg)](https://github.com/harshzalavadiya/use-indexeddb/actions)
 [![NPM](https://img.shields.io/npm/v/use-indexeddb.svg)](https://npm.im/use-indexeddb)
 [![gzip](https://badgen.net/bundlephobia/minzip/use-indexeddb@latest)](https://bundlephobia.com/result?p=use-indexeddb@latest)
@@ -16,7 +16,7 @@ yarn add use-indexeddb # yarn
 
 ## 📚 Storybook
 
-[see demo on storybook](https://use-indexeddb.netlify.app/)
+[see demo on storybook](https://use-indexeddb.vercel.app/)
 
 ## ✨ Features
 
