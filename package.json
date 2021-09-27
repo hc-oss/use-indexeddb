@@ -1,6 +1,6 @@
 {
   "name": "use-indexeddb",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Lightweight (1KB gzipped) hooks w/ promises for easy IndexedDB access in React ⚓",
   "author": "Harsh Zalavadiya",
   "module": "dist/use-indexeddb.esm.js",
@@ -34,23 +34,23 @@
   },
   "devDependencies": {
     "@ampproject/filesize": "^4.3.0",
-    "@babel/core": "^7.14.6",
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/react": "^6.2.9",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.2",
+    "@babel/core": "^7.15.5",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/react": "^6.3.8",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
     "babel-loader": "^8.2.2",
-    "husky": "^6.0.0",
+    "husky": "^7.0.2",
     "react": "^17.0.2",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
-    "ts-loader": "^9.2.3",
+    "ts-loader": "^9.2.6",
     "tsdx": "^0.14.1",
-    "tslib": "^2.3.0",
-    "typescript": "^4.3.4"
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3"
   },
   "filesize": {
     "track": [
@@ -58,8 +58,8 @@
     ]
   },
   "dependencies": {
-    "@storybook/addon-knobs": "^6.2.9",
+    "@storybook/addon-knobs": "^6.3.1",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/addon-storysource": "^6.2.9"
+    "@storybook/addon-storysource": "^6.3.8"
   }
 }
