@@ -7,29 +7,40 @@ interface UseIndexedDBProps {
   config: IndexedDBConfig;
   children?;
   loading?;
+  fallback?;
   actions?: typeof getActions;
 }
 
-const ObservationCreateContext = createContext<UseIndexedDBProps>({} as UseIndexedDBProps);
+const IndexedDBContext = createContext<UseIndexedDBProps>({} as UseIndexedDBProps);
 
 const IndexedDBProvider = (props: UseIndexedDBProps) => {
-  const [isInitialized, setIsInitialized] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(0);
 
   useEffect(() => {
-    getConnection(props.config).then(() => setIsInitialized(true));
+    getConnection(props.config)
+      .then(() => setIsInitialized(1))
+      .catch(() => setIsInitialized(2));
   }, []);
 
-  return isInitialized ? (
-    <ObservationCreateContext.Provider value={{ config: props.config, actions: getActions }}>
-      {props.children}
-    </ObservationCreateContext.Provider>
-  ) : (
-    props.loading || null
-  );
+  switch (isInitialized) {
+    case 1:
+      return (
+        <IndexedDBContext.Provider value={{ config: props.config, actions: getActions }}>
+          {props.children}
+        </IndexedDBContext.Provider>
+      );
+
+    case 2:
+      console.warn("Not Supported");
+      return props.fallback || null;
+
+    default:
+      return props.loading || null;
+  }
 };
 
 export function useIndexedDBStore<T>(storeName: string) {
-  const ctx = useContext(ObservationCreateContext);
+  const ctx = useContext(IndexedDBContext);
   return ctx.actions<T>(storeName, ctx.config);
 }
 

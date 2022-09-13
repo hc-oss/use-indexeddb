@@ -61,7 +61,7 @@ const idbConfig = {
 
 // Wrap your child component into Provider
 const Container = () => (
-  <IndexedDBProvider config={idbConfig}>
+  <IndexedDBProvider config={idbConfig} loading="Loading..." fallback="Unsupported">
     <Example />
   </IndexedDBProvider>
 );

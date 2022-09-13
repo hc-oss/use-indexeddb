@@ -20,7 +20,7 @@ const idbConfig: IndexedDBConfig = {
 };
 
 export const Page = () => (
-  <IndexedDBProvider config={idbConfig} loading="Loading...">
+  <IndexedDBProvider config={idbConfig} loading="Loading..." fallback="Not Supported">
     <IDBOperations />
   </IndexedDBProvider>
 );

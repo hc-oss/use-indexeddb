@@ -1,6 +1,6 @@
 {
   "name": "use-indexeddb",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Lightweight (1KB gzipped) hooks w/ promises for easy IndexedDB access in React ⚓",
   "author": "Harsh Zalavadiya",
   "module": "dist/use-indexeddb.esm.js",
@@ -20,8 +20,8 @@
     "build": "tsdx build && filesize",
     "lint": "tsdx lint",
     "prepare": "tsdx build && filesize",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
+    "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook"
   },
   "peerDependencies": {
     "react": ">=17"
@@ -34,23 +34,23 @@
   },
   "devDependencies": {
     "@ampproject/filesize": "^4.3.0",
-    "@babel/core": "^7.15.5",
-    "@storybook/addon-actions": "^6.3.8",
-    "@storybook/addon-essentials": "^6.3.8",
-    "@storybook/addon-links": "^6.3.8",
-    "@storybook/react": "^6.3.8",
-    "@types/react": "^17.0.24",
-    "@types/react-dom": "^17.0.9",
-    "babel-loader": "^8.2.2",
-    "husky": "^7.0.2",
-    "react": "^17.0.2",
+    "@babel/core": "^7.19.0",
+    "@storybook/addon-actions": "^6.5.11",
+    "@storybook/addon-essentials": "^6.5.11",
+    "@storybook/addon-links": "^6.5.11",
+    "@storybook/react": "^6.5.11",
+    "@types/react": "^18.0.19",
+    "@types/react-dom": "^18.0.6",
+    "babel-loader": "^8.2.5",
+    "husky": "^8.0.1",
+    "react": "^18.2.0",
     "react-docgen-typescript-loader": "^3.7.2",
-    "react-dom": "^17.0.2",
-    "react-is": "^17.0.2",
-    "ts-loader": "^9.2.6",
+    "react-dom": "^18.2.0",
+    "react-is": "^18.2.0",
+    "ts-loader": "^9.3.1",
     "tsdx": "^0.14.1",
-    "tslib": "^2.3.1",
-    "typescript": "^4.4.3"
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.3"
   },
   "filesize": {
     "track": [
@@ -60,6 +60,6 @@
   "dependencies": {
     "@storybook/addon-knobs": "^6.3.1",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/addon-storysource": "^6.3.8"
+    "@storybook/addon-storysource": "^6.5.11"
   }
 }
