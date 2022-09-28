@@ -15,7 +15,7 @@ const MANGO = { name: "🥭 mango", qty: 4 };
 
 export default function IDBOperations() {
   const actions = useIndexedDBStore<Fruit>("fruits");
-  const [out, setOut] = useState({});
+  const [out, setOut] = useState<any>({});
 
   useEffect(() => {
     console.log(out);
@@ -34,12 +34,12 @@ export default function IDBOperations() {
     setOut(await actions.getAll());
   };
 
-  const testGetOneByIndex = async () => {
-    setOut(await actions.getOneByIndex("qty", 1));
+  const testGetOneByKey = async () => {
+    setOut(await actions.getOneByKey("qty", 1));
   };
 
-  const testGetManyByIndex = async () => {
-    setOut(await actions.getManyByIndex("qty", 1));
+  const testGetManyByKey = async () => {
+    setOut(await actions.getManyByKey("qty", 1));
   };
 
   const testUpdate = async () => {
@@ -87,8 +87,8 @@ export default function IDBOperations() {
 
       <br />
 
-      <button onClick={testGetOneByIndex}>Get One By Index [qty = 1]</button>
-      <button onClick={testGetManyByIndex}>Get Many By Index [qty = 1]</button>
+      <button onClick={testGetOneByKey}>Get One By Key [qty = 1]</button>
+      <button onClick={testGetManyByKey}>Get Many By Key [qty = 1]</button>
 
       <br />
 

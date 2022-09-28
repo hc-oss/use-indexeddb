@@ -22,7 +22,7 @@ yarn add use-indexeddb # yarn
 
 - 🍃 Lightweight (~1KB gzipped) [no dependencies]
 - 🧠 Automatic modal type inference like `useIndexedDBStore<YourInterface>()`
-- ✔️ SSR Safe (but don't wrap entire application in it)
+- ✅ SSR Safe
 - 🤞 Simple [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) based api
 
 ## 📦 Examples
@@ -30,8 +30,8 @@ yarn add use-indexeddb # yarn
 1. [add](#addvalue-key)
 2. [getByID](#getbyidid)
 3. [getAll](#getall)
-4. [getOneByIndex](#getonebyindexkeypath-value)
-5. [getManyByIndex](#getmanybyindexkeypath-value)
+4. [getOneByKey](#getonebykeykeypath-value)
+5. [getManyByKey](#getmanybykeykeypath-value)
 6. [update](#updatevalue-key)
 7. [deleteByID](#deletebyidid)
 8. [deleteAll](#deleteall)
@@ -41,7 +41,7 @@ yarn add use-indexeddb # yarn
 
 ```tsx
 import React from "react";
-import IndexedDBProvider, { useIndexedDBStore } from "use-indexeddb";
+import setupIndexedDB, { useIndexedDBStore } from "use-indexeddb";
 
 // Database Configuration
 const idbConfig = {
@@ -59,14 +59,13 @@ const idbConfig = {
   ],
 };
 
-// Wrap your child component into Provider
-const Container = () => (
-  <IndexedDBProvider config={idbConfig} loading="Loading..." fallback="Unsupported">
-    <Example />
-  </IndexedDBProvider>
-);
-
 const Example = () => {
+  useEffect(() => {
+    setupIndexedDB(idbConfig)
+      .then(() => console.log("success"))
+      .catch(e => console.error("error / unsupported", e));
+  }, []);
+
   const { add } = useIndexedDBStore("fruits");
 
   const insertFruit = () => {
@@ -76,7 +75,7 @@ const Example = () => {
   return <button onClick={insertFruit}>Insert</button>;
 };
 
-export default Container;
+export default Example;
 ```
 
 ### `add(value, key?)`
@@ -141,7 +140,7 @@ function Example() {
 }
 ```
 
-### `getOneByIndex(keyPath, value)`
+### `getOneByKey(keyPath, value)`
 
 Retrives single record if any row matches with given `keyPath` having `value`
 
@@ -149,10 +148,10 @@ Retrives single record if any row matches with given `keyPath` having `value`
 import { useIndexedDBStore } from "use-indexeddb";
 
 function Example() {
-  const { getOneByIndex } = useIndexedDBStore("fruits");
+  const { getOneByKey } = useIndexedDBStore("fruits");
 
   const onClick = () => {
-    getOneByIndex("quantity", 2)
+    getOneByKey("quantity", 2)
       .then(console.log)
       .catch(console.error);
   };
@@ -161,7 +160,7 @@ function Example() {
 }
 ```
 
-### `getManyByIndex(keyPath, value)`
+### `getManyByKey(keyPath, value)`
 
 Retrives multiple records in form of array if row matches with given `keyPath` having `value`
 
@@ -169,10 +168,10 @@ Retrives multiple records in form of array if row matches with given `keyPath` h
 import { useIndexedDBStore } from "use-indexeddb";
 
 function Example() {
-  const { getManyByIndex } = useIndexedDBStore("fruits");
+  const { getManyByKey } = useIndexedDBStore("fruits");
 
   const onClick = () => {
-    getManyByIndex("quantity", 2)
+    getManyByKey("quantity", 2)
       .then(console.log)
       .catch(console.error);
   };

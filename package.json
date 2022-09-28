@@ -34,12 +34,12 @@
   },
   "devDependencies": {
     "@ampproject/filesize": "^4.3.0",
-    "@babel/core": "^7.19.0",
-    "@storybook/addon-actions": "^6.5.11",
-    "@storybook/addon-essentials": "^6.5.11",
-    "@storybook/addon-links": "^6.5.11",
-    "@storybook/react": "^6.5.11",
-    "@types/react": "^18.0.19",
+    "@babel/core": "^7.19.3",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/react": "^6.5.12",
+    "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "babel-loader": "^8.2.5",
     "husky": "^8.0.1",
@@ -47,10 +47,10 @@
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
-    "ts-loader": "^9.3.1",
+    "ts-loader": "^9.4.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
-    "typescript": "^4.8.3"
+    "typescript": "^4.8.4"
   },
   "filesize": {
     "track": [
@@ -60,6 +60,6 @@
   "dependencies": {
     "@storybook/addon-knobs": "^6.3.1",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/addon-storysource": "^6.5.11"
+    "@storybook/addon-storysource": "^6.5.12"
   }
 }
