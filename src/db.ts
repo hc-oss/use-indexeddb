@@ -1,4 +1,6 @@
+import { IDB_KEY } from "./constants";
 import { IndexedDBConfig } from "./interfaces";
+import { waitUntil } from "./utils";
 
 function validateStore(db: IDBDatabase, storeName: string) {
   return db.objectStoreNames.contains(storeName);
@@ -28,11 +30,18 @@ export function createTransaction(
   return tx;
 }
 
-export async function getConnection(config: IndexedDBConfig): Promise<IDBDatabase> {
+export async function getConnection(config?: IndexedDBConfig): Promise<IDBDatabase> {
+  const idbInstance = typeof window !== "undefined" ? window.indexedDB : null;
+  let _config = config;
+
+  if (!config && idbInstance) {
+    await waitUntil(() => window?.[IDB_KEY]?.["init"] === 1);
+    _config = window[IDB_KEY]?.["config"];
+  }
+
   return new Promise<IDBDatabase>((resolve, reject) => {
-    const idbInstance = typeof window !== "undefined" ? window.indexedDB : null;
     if (idbInstance) {
-      const request: IDBOpenDBRequest = idbInstance.open(config.databaseName, config.version);
+      const request: IDBOpenDBRequest = idbInstance.open(_config.databaseName, _config.version);
 
       request.onsuccess = () => {
         resolve(request.result);
@@ -61,11 +70,11 @@ export async function getConnection(config: IndexedDBConfig): Promise<IDBDatabas
   });
 }
 
-export function getActions<T>(currentStore, config) {
+export function getActions<T>(currentStore) {
   return {
     getByID(id: string | number) {
       return new Promise<T>((resolve, reject) => {
-        getConnection(config)
+        getConnection()
           .then(db => {
             validateBeforeTransaction(db, currentStore, reject);
             let tx = createTransaction(db, "readonly", currentStore, resolve, reject);
@@ -78,9 +87,9 @@ export function getActions<T>(currentStore, config) {
           .catch(reject);
       });
     },
-    getOneByIndex(keyPath: string, value: string | number) {
+    getOneByKey(keyPath: string, value: string | number) {
       return new Promise<T | undefined>((resolve, reject) => {
-        getConnection(config)
+        getConnection()
           .then(db => {
             validateBeforeTransaction(db, currentStore, reject);
             let tx = createTransaction(db, "readonly", currentStore, resolve, reject);
@@ -94,9 +103,9 @@ export function getActions<T>(currentStore, config) {
           .catch(reject);
       });
     },
-    getManyByIndex(keyPath: string, value: string | number) {
+    getManyByKey(keyPath: string, value: string | number) {
       return new Promise<T[]>((resolve, reject) => {
-        getConnection(config)
+        getConnection()
           .then(db => {
             validateBeforeTransaction(db, currentStore, reject);
             let tx = createTransaction(db, "readonly", currentStore, resolve, reject);
@@ -112,7 +121,7 @@ export function getActions<T>(currentStore, config) {
     },
     getAll() {
       return new Promise<T[]>((resolve, reject) => {
-        getConnection(config)
+        getConnection()
           .then(db => {
             validateBeforeTransaction(db, currentStore, reject);
             let tx = createTransaction(db, "readonly", currentStore, resolve, reject);
@@ -128,7 +137,7 @@ export function getActions<T>(currentStore, config) {
 
     add(value: T, key?: any) {
       return new Promise<number>((resolve, reject) => {
-        getConnection(config)
+        getConnection()
           .then(db => {
             validateBeforeTransaction(db, currentStore, reject);
             let tx = createTransaction(db, "readwrite", currentStore, resolve, reject);
@@ -142,9 +151,10 @@ export function getActions<T>(currentStore, config) {
           .catch(reject);
       });
     },
+
     update(value: T, key?: any) {
       return new Promise<any>((resolve, reject) => {
-        getConnection(config)
+        getConnection()
           .then(db => {
             validateBeforeTransaction(db, currentStore, reject);
             let tx = createTransaction(db, "readwrite", currentStore, resolve, reject);
@@ -161,7 +171,7 @@ export function getActions<T>(currentStore, config) {
 
     deleteByID(id: any) {
       return new Promise<any>((resolve, reject) => {
-        getConnection(config)
+        getConnection()
           .then(db => {
             validateBeforeTransaction(db, currentStore, reject);
             let tx = createTransaction(db, "readwrite", currentStore, resolve, reject);
@@ -177,13 +187,13 @@ export function getActions<T>(currentStore, config) {
     },
     deleteAll() {
       return new Promise<any>((resolve, reject) => {
-        getConnection(config)
+        getConnection()
           .then(db => {
             validateBeforeTransaction(db, currentStore, reject);
             let tx = createTransaction(db, "readwrite", currentStore, resolve, reject);
             let objectStore = tx.objectStore(currentStore);
-            objectStore.clear();
-            tx.oncomplete = (e: any) => {
+            let request = objectStore.clear();
+            request.onsuccess = (e: any) => {
               (tx as any)?.commit?.();
               resolve(e);
             };
@@ -194,7 +204,7 @@ export function getActions<T>(currentStore, config) {
 
     openCursor(cursorCallback, keyRange?: IDBKeyRange) {
       return new Promise<IDBCursorWithValue | void>((resolve, reject) => {
-        getConnection(config)
+        getConnection()
           .then(db => {
             validateBeforeTransaction(db, currentStore, reject);
             let tx = createTransaction(db, "readonly", currentStore, resolve, reject);

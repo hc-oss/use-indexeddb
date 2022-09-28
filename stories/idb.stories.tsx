@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import IndexedDBProvider from "../src";
+import setupIndexedDB from "../src";
 import { IndexedDBConfig } from "../src/interfaces";
 import IDBOperations from "./idb-operations";
 
@@ -19,11 +19,15 @@ const idbConfig: IndexedDBConfig = {
   ],
 };
 
-export const Page = () => (
-  <IndexedDBProvider config={idbConfig} loading="Loading..." fallback="Not Supported">
-    <IDBOperations />
-  </IndexedDBProvider>
-);
+export const Page = () => {
+  useEffect(() => {
+    setupIndexedDB(idbConfig)
+      .then(() => console.log("success"))
+      .catch(console.error);
+  }, []);
+
+  return <IDBOperations />;
+};
 
 export default {
   title: "Default",
