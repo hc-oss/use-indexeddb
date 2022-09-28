@@ -20,8 +20,8 @@
     "build": "tsdx build && filesize",
     "lint": "tsdx lint",
     "prepare": "tsdx build && filesize",
-    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
-    "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "peerDependencies": {
     "react": ">=17"
