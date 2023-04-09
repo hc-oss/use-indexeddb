@@ -8,7 +8,6 @@ async function setupIndexedDB(config: IndexedDBConfig) {
   return new Promise<void>(async (resolve, reject) => {
     try {
       await getConnection(config);
-      console.log("inside Init", config);
       window[IDB_KEY] = { init: 1, config };
       resolve();
     } catch (e) {
